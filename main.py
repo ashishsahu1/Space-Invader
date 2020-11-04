@@ -1,3 +1,9 @@
 import pygame
 
-#creating a game window
+#initialise pygame module
+pygame.init()
+
+#creating screen
+screen = pygame.display.set_mode((800,600))
+
+
