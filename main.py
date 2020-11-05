@@ -44,7 +44,11 @@ while running:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 Xchange = 0
             
-
+    if playerX >= 736:
+        playerX = 736
+    elif playerX <=0:
+        playerX = 0
+        
     playerX += Xchange
     playerY += Ychange
     player(playerX,playerY)
