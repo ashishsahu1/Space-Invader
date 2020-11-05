@@ -23,11 +23,12 @@ def player():
 running = True
 while running:
     screen.fill((15, 48, 87))
+    playerX+=0.1
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False    
 
     player()
 
-    
+
     pygame.display.update()
