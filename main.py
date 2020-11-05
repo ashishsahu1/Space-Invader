@@ -3,11 +3,20 @@ import pygame
 #initialise pygame module
 pygame.init()
 
-#creating screen
+#creating screen (x,y)
 screen = pygame.display.set_mode((800,600))
 
+#title and icon
+pygame.display.set_caption("Space Invader")
+icon = pygame.image.load('img/icon2.png')
+pygame.display.set_icon(icon)
+
+# Game loop
 running = True
 while running:
     for event in pygame.event.get():
-        if event.type == pygame.quit():
+        if event.type == pygame.QUIT:
             running = False
+
+    screen.fill((15, 48, 87))
+    pygame.display.update()
