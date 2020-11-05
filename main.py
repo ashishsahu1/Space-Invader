@@ -12,8 +12,16 @@ pygame.display.set_caption("Space Invader")
 icon = pygame.image.load('img/icon2.png')
 pygame.display.set_icon(icon)
 
+#enemy
+enemyImg = pygame.image.load('img/enemy.png')
+enemyX = 370
+enemyY = 780
+
+def enemy(enemyX,enemyY):
+    screen.blit(enemyImg,(enemyX,enemyY))
+
 #player
-playerImg = pygame.image.load('img/space.png')
+playerImg = pygame.image.load('img/player.png')
 playerX = 370
 playerY = 480
 Xchange = 0
@@ -48,10 +56,11 @@ while running:
         playerX = 736
     elif playerX <=0:
         playerX = 0
-        
+
     playerX += Xchange
     playerY += Ychange
     player(playerX,playerY)
 
+    enemy(enemyX,enemyY)
 
     pygame.display.update()
