@@ -15,6 +15,21 @@ pygame.display.set_caption("Space Invader")
 icon = pygame.image.load('img/icon2.png')
 pygame.display.set_icon(icon)
 
+bulletImg = pygame.image.load('img/bullet.png')
+bulletX = 0
+bulletY = 480
+bulletXchange = 0
+bulletYchange = 10
+
+# global bullet_state
+bullet_State = 'ready'
+
+def fire_bullet(x,y):
+    # global bullet_state
+    bullet_state = 'fire'
+    screen.blit(bulletImg, (x+16,y+16))
+    return bullet_state
+
 #enemy
 enemyImg = pygame.image.load('img/enemy.png')
 enemyX = random.randint(0,800)
@@ -53,10 +68,14 @@ while running:
                 playerXchange = -5
             if event.key == pygame.K_RIGHT:
                 playerXchange = 5
+                
+            if event.type == pygame.K_SPACE:
+                fire_bullet(playerX,bulletY)
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 playerXchange = 0
+
 
     #player boundary check      
     playerX += playerXchange
@@ -73,7 +92,10 @@ while running:
     elif enemyX  <=0:
         enemyXchange  = 4
         enemyY += enemyYchange
-
+    
+    if fire_bullet is "fire":
+        fire_bullet(playerX,bulletY)
+        bulletY -= bulletYchange
     
     # playerY += Ychange
     player(playerX,playerY)
