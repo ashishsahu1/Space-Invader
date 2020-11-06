@@ -1,5 +1,6 @@
 import pygame
 from pygame.constants import KEYDOWN
+import random
 
 #initialise pygame module
 pygame.init()
@@ -14,8 +15,8 @@ pygame.display.set_icon(icon)
 
 #enemy
 enemyImg = pygame.image.load('img/enemy.png')
-enemyX = 370
-enemyY = 80
+enemyX = random.randint(0,800)
+enemyY = random.randint(50,150)
 eneryXchange = 0
 def enemy(enemyX,enemyY):
     screen.blit(enemyImg,(enemyX,enemyY))
