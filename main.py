@@ -15,8 +15,8 @@ pygame.display.set_icon(icon)
 #enemy
 enemyImg = pygame.image.load('img/enemy.png')
 enemyX = 370
-enemyY = 780
-
+enemyY = 80
+eneryXchange = 0
 def enemy(enemyX,enemyY):
     screen.blit(enemyImg,(enemyX,enemyY))
 
@@ -24,9 +24,8 @@ def enemy(enemyX,enemyY):
 playerImg = pygame.image.load('img/player.png')
 playerX = 370
 playerY = 480
-Xchange = 0
-Ychange = 0
-
+playerXchange = 0
+# Ychange = 0
 def player(playerX,playerY):
     screen.blit(playerImg,(playerX,playerY))
 
@@ -44,21 +43,21 @@ while running:
     #checking keystroke is left or right
         if event.type  == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                Xchange = -0.3
+                playerXchange = -0.3
             if event.key == pygame.K_RIGHT:
-                Xchange = 0.3
+                playerXchange = 0.3
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                Xchange = 0
+                playerXchange = 0
             
     if playerX >= 736:
         playerX = 736
     elif playerX <=0:
         playerX = 0
 
-    playerX += Xchange
-    playerY += Ychange
+    playerX += playerXchange
+    # playerY += Ychange
     player(playerX,playerY)
 
     enemy(enemyX,enemyY)
