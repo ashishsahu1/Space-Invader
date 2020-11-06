@@ -17,7 +17,8 @@ pygame.display.set_icon(icon)
 enemyImg = pygame.image.load('img/enemy.png')
 enemyX = random.randint(0,800)
 enemyY = random.randint(50,150)
-eneryXchange = 0
+enemyXchange = 0.2
+enemyYchange = 40
 def enemy(enemyX,enemyY):
     screen.blit(enemyImg,(enemyX,enemyY))
 
@@ -51,13 +52,24 @@ while running:
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 playerXchange = 0
-            
+
+    #player boundary check      
+    playerX += playerXchange
     if playerX >= 736:
         playerX = 736
     elif playerX <=0:
         playerX = 0
 
-    playerX += playerXchange
+    #enenmy movement
+    enemyX += enemyXchange
+    if enemyX  >= 736:
+        enemyXchange = -0.2
+        enemyY += enemyYchange
+    elif enemyX  <=0:
+        enemyXchange  = 0.2
+        enemyY += enemyYchange
+
+    
     # playerY += Ychange
     player(playerX,playerY)
 
