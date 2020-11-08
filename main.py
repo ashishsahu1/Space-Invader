@@ -28,7 +28,7 @@ def bullet(x,y):
     print("bullet")
     screen.blit(bulletImg, (x+16,y+10))
     global bullet_state
-    bullet_state = 'fire'
+    bullet_state = "fire"
 
 # def fire_bullet(x,y):
 #     global bullet_state
@@ -99,7 +99,9 @@ while running:
         enemyXchange  = 0.2
         enemyY += enemyYchange
 
-    if bullet_State is "fire":
+
+    if bullet_State == "fire":
+        print("fire")
         bullet(playerX,bulletY)
         bulletY -= bulletYchange
     
